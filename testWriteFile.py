@@ -24,16 +24,15 @@ with open('/Users/michael/test.txt', 'w') as f:
 """
 
 
-def find_target_Line(str, file_name, method, startPoint=0):
+def find_target_Line(serach:str, file_name: str, method: str, startPoint=0):
     # f = open(file_name,method).readlines()
     with open(file_name, method) as f:
-        # f.readlines()
         data = f.readlines()
         # print "Show the data as below\n", data
-        print "The type of f is:", type(data)
+        print("The type of f is:", type(data))
         for i in range(startPoint, len(data)):
-            if str in data[i]:
-                print 'The target line is', i + 1
+            if serach in data[i]:
+                print('The target line is', i + 1)
                 return i + 1
                 break
         else:
@@ -43,17 +42,17 @@ def find_target_Line(str, file_name, method, startPoint=0):
 # result = find_target_Line(s, 'workday.txt', 'rb')
 # print "the type of func(\"find_target_Line\"):", type(result)
 
-def find_all_target_lines(str): # input str; return the list L
+def find_all_target_lines(str):  # input str; return the list L
     L = []
     lineNum = 0
     while True:
         lineNum = find_target_Line(str, 'workday.txt', 'rb', lineNum)
-        print "the lineNum is", lineNum
+        print("the lineNum is", lineNum)
         if lineNum == "Not found!":
-            print "Done!"
+            print("Done!")
             break
         L.append(lineNum)
-    print "The list L is", L
+    print("The list L is", L)
     return L
 
 
@@ -76,17 +75,46 @@ def replace_file_data(file_path: str, data: str) -> None:
 
 """
 
-def replace_file_data(file_path, data):
-    format_file_path = str(file_path)
-    format_data = str(data)
+
+def replace_file_data(file_path: str, data):
+    # format_file_path = str(file_path)
+    # format_data = str(data)
     # with fileinput.input(files=format_file_path, inplace=True) as fp:
-    fp = fileinput.input(files=format_file_path, inplace=True)
+    fp = fileinput.input(files=file_path, inplace=True)
     for d in fp:
         if fp.filelineno() == 1:
             # 如果行数为 1 则进行插入
-            print data
-        print d
+            print(data)
+        print(d.strip())
     fp.close()
 
 
-replace_file_data('workday.txt','fuckyou')
+def temp(file_path: str):
+    tempList = []
+    for line in fileinput.input(files=file_path, inplace=False, backup='.bak'):
+        if line.strip() != '':
+            tempList.append(line.strip())
+    return tempList
+
+
+def overwriteFile(file_path: str, message: list):
+    # for line, i in zip(fileinput.input(files=file_path, inplace=False, backup='.bak'), message):
+    #     print(i)
+    fp = fileinput.input(files=file_path, inplace=True, backup='.bak')
+    for line in fp:
+        if fileinput.isfirstline():
+            for i in message:
+                print(i)
+    fp.close()
+
+
+
+def main():
+    # replace_file_data('workday.txt', 'fuckyou')
+    print(temp("workday.txt"))
+    # overwriteFile("workday.txt", temp("workday.txt"))
+    print(find_target_Line("picture","workday.txt","rt"))
+
+
+if __name__ == '__main__':
+    main()
