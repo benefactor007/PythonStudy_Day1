@@ -24,21 +24,6 @@ with open('/Users/michael/test.txt', 'w') as f:
 """
 
 
-def find_target_Line(serach:str, file_name: str, method: str, startPoint=0):
-    # f = open(file_name,method).readlines()
-    with open(file_name, method) as f:
-        data = f.readlines()
-        # print "Show the data as below\n", data
-        print("The type of f is:", type(data))
-        for i in range(startPoint, len(data)):
-            if serach in data[i]:
-                print('The target line is', i + 1)
-                return i + 1
-                break
-        else:
-            return "Not found!"
-
-
 # result = find_target_Line(s, 'workday.txt', 'rb')
 # print "the type of func(\"find_target_Line\"):", type(result)
 
@@ -89,7 +74,7 @@ def replace_file_data(file_path: str, data):
     fp.close()
 
 
-def temp(file_path: str):
+def fileInfo_to_list(file_path: str) -> list:
     tempList = []
     for line in fileinput.input(files=file_path, inplace=False, backup='.bak'):
         if line.strip() != '':
@@ -108,12 +93,72 @@ def overwriteFile(file_path: str, message: list):
     fp.close()
 
 
+def find_target_Line(search: str, file_name: str, method: str, startPoint=0) -> int:
+    # f = open(file_name,method).readlines()
+    with open(file_name, method) as f:
+        data = f.readlines()
+        # print "Show the data as below\n", data
+        print("The type of f is:", type(data))
+        for i in range(startPoint, len(data)):
+            if search in data[i]:
+                print('The target line is', i + 1)
+                return i + 1
+                break
+        else:
+            return "Not found!"
+
+
+"""
+如果函数参数既要设定初始值（默认形参），又要进行注释，注释应该放在":“号与”=“号之间；如果要注释返回值，注释放在”)“与”:“之间，并加上”->"。
+"""
+
+
+def insert_message_to_file(file_path: str, message: list = [], lineNum: int = 0, search: str = "",
+                           test: bool = True) -> bool:
+    if search == '' and lineNum == 0:
+        print('At least one of search and lineNum should be given')
+        return False
+    elif search != '' and lineNum != 0:
+        print('Duplicate info as given...mess up!!! ')
+        return False
+    else:
+        for line in fileinput.input(files=file_path, inplace=test, backup='.bak'):
+            if search != '':
+                # print(line.strip())
+                if search in line:
+                    for i in message:
+                        print(i)
+            # elif lineNum != 0:
+            else:
+                if fileinput.lineno() == lineNum:
+                    for i in message:
+                        print(i)
+            print(line.strip())
+        fileinput.close()
+        return True
+
+
+def test_insert_message_to_file():
+    insert_message_to_file('workday.txt', search="According to", message=['Who are you?', "I'm your father"],
+                           test=False)
+    insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"], test=False)
+    insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],
+                           search="According to", test=False)
+    try:
+        insert_message_to_file(test=False)
+    except TypeError as error:
+        print(error)
+
 
 def main():
     # replace_file_data('workday.txt', 'fuckyou')
-    print(temp("workday.txt"))
-    # overwriteFile("workday.txt", temp("workday.txt"))
-    print(find_target_Line("picture","workday.txt","rt"))
+    # print(fileInfo_to_list("workday.txt"))
+    # # overwriteFile("workday.txt", temp("workday.txt"))
+    # print(find_target_Line("picture", "workday.txt", "rt"))
+    # insert_message_to_file('workday.txt', search="According to",message=['Who are you?', "I'm your father"])
+    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"])
+    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],search="According to")
+    test_insert_message_to_file()
 
 
 if __name__ == '__main__':
