@@ -1,0 +1,25 @@
+fuckyou
+fuckyou
+Hi all,
+Update: According to Christian Hildebrand the base for MIB3 and CNS3 is not common.
+The used Testmanager branch in the CNS3 SOP2 is approximately 1 year (!) older than the version, when the needed function was introduced to the SW.
+This also might apply to other modules than the TM.
+Without a complete merge of those two projects MIB3 and CNS3 it will not be possible to support both from the same point.
+A similar issue to the Geoblocking hits also current FBU 37W versions (SW 280+): There some functions for GNSS are not supported by the Testmanager due to version mismatch.
+It is just a big mess and it will be harder and harder to keep the overview.
+Even worse: Each new variant or SW we need to deal with pseudo errors, which
+-	slows down frontrunner production,
+-	makes the tester sequences more and more impossible to maintain and therewith error prone
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-	blurs the picture to identify real problems
+Long story short: Before the SW don’t gets a bug-fix, holding an up-to-date TM version, no WLAN can be tested in FCT.
+BR
+Roman
