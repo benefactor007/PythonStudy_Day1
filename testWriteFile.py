@@ -126,8 +126,10 @@ def insert_message_to_file(file_path: str, message: list = [], lineNum: int = 0,
             if search != '':
                 # print(line.strip())
                 if search in line:
+                    # line = line.replace(search, "")
                     for i in message:
                         print(i)
+                        # line = i
             # elif lineNum != 0:
             else:
                 if fileinput.lineno() == lineNum:
@@ -138,16 +140,44 @@ def insert_message_to_file(file_path: str, message: list = [], lineNum: int = 0,
         return True
 
 
+def insert_message_to_file_v2(file_path: str, message: str = '', lineNum: int = 0, search: str = "",
+                           test: bool = True) -> bool:
+    if search == '' and lineNum == 0:
+        print('At least one of search and lineNum should be given')
+        return False
+    elif search != '' and lineNum != 0:
+        print('Duplicate info as given...mess up!!! ')
+        return False
+    else:
+        for line in fileinput.input(files=file_path, inplace=test, backup='.bak'):
+            print(line.strip())             # put code over here, let insert info after search
+            if search != '':
+                # print(line.strip())
+                if search in line:
+                    # line = line.replace(search, "")
+                    # line = message        # <- replace the search with message (option2)
+                    print(message)          # <- just insert the message (option1)
+                    # line = i
+            # elif lineNum != 0:
+            else:
+                if fileinput.lineno() == lineNum:
+                    for i in message:
+                        print(i)
+            # print(line.strip())  # put code over here, let insert info before search
+        fileinput.close()
+        return True
+
+
 def test_insert_message_to_file():
     insert_message_to_file('workday.txt', search="According to", message=['Who are you?', "I'm your father"],
                            test=False)
-    insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"], test=False)
-    insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],
-                           search="According to", test=False)
-    try:
-        insert_message_to_file(test=False)
-    except TypeError as error:
-        print(error)
+    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"], test=False)
+    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],
+    #                        search="According to", test=False)
+    # try:
+    #     insert_message_to_file(test=False)
+    # except TypeError as error:
+    #     print(error)
 
 
 def main():
@@ -158,7 +188,23 @@ def main():
     # insert_message_to_file('workday.txt', search="According to",message=['Who are you?', "I'm your father"])
     # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"])
     # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],search="According to")
-    test_insert_message_to_file()
+    # test_insert_message_to_file()
+    # insert_message_to_file('main.mnf', search='"MuVersion": "0665",', message=['"MuVersion": "C665",'],
+    #                        test=False)
+    # insert_message_to_file('main.mnf', search=' "SupportedTrains": [',
+    #                        message=['', '"DevelopmentFlags": {', '  "SkipCheckManifestChecksum": true,',
+    #                                 '  "SkipCheckInstallerChecksum": true,', '  "SkipCheckVariant": true', ' },', ''],
+    #                        test=False)
+
+    # insert_message_to_file_v2('main.mnf', search='"MuVersion": "0665",', message='"MuVersion": "C665"',
+    #                        test=False)
+
+    # insert_message_to_file_v2('main.mnf', search=' "SupportedTrains": [',
+    #                        message='"DevelopmentFlags": {\n "SkipCheckManifestChecksum": true,'
+    #                                '\n "SkipCheckInstallerChecksum": true,\n "SkipCheckVariant": true\n},',
+    #                        test=False)
+    insert_message_to_file_v2('main.mnf', search='"MuVersion": "0665",', message='"MuVersion": "C665"',
+                           test=False)
 
 
 if __name__ == '__main__':
