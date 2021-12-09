@@ -141,7 +141,7 @@ def insert_message_to_file(file_path: str, message: list = [], lineNum: int = 0,
 
 
 def insert_message_to_file_v2(file_path: str, message: str = '', lineNum: int = 0, search: str = "",
-                           test: bool = True) -> bool:
+                              close_test_mode: bool = True, overwrite: str = False, insertPosition: str = "before") -> bool:
     if search == '' and lineNum == 0:
         print('At least one of search and lineNum should be given')
         return False
@@ -149,21 +149,25 @@ def insert_message_to_file_v2(file_path: str, message: str = '', lineNum: int = 
         print('Duplicate info as given...mess up!!! ')
         return False
     else:
-        for line in fileinput.input(files=file_path, inplace=test, backup='.bak'):
-            print(line.strip())             # put code over here, let insert info after search
+        for line in fileinput.input(files=file_path, inplace=close_test_mode, backup='.bak'):
+            if insertPosition == "after":
+                print(line.strip())  # put code over here, let insert info after search
             if search != '':
                 # print(line.strip())
                 if search in line:
                     # line = line.replace(search, "")
-                    # line = message        # <- replace the search with message (option2)
-                    print(message)          # <- just insert the message (option1)
+                    if overwrite:
+                        line = message  # <- replace the search with message (option2)
+                    else:
+                        print(message)  # <- just insert the message (option1)
                     # line = i
             # elif lineNum != 0:
             else:
                 if fileinput.lineno() == lineNum:
                     for i in message:
                         print(i)
-            # print(line.strip())  # put code over here, let insert info before search
+            if insertPosition == "before":
+                print(line.strip())  # put code over here, let insert info before search
         fileinput.close()
         return True
 
@@ -171,40 +175,24 @@ def insert_message_to_file_v2(file_path: str, message: str = '', lineNum: int = 
 def test_insert_message_to_file():
     insert_message_to_file('workday.txt', search="According to", message=['Who are you?', "I'm your father"],
                            test=False)
-    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"], test=False)
-    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],
-    #                        search="According to", test=False)
-    # try:
-    #     insert_message_to_file(test=False)
-    # except TypeError as error:
-    #     print(error)
 
 
 def main():
-    # replace_file_data('workday.txt', 'fuckyou')
-    # print(fileInfo_to_list("workday.txt"))
-    # # overwriteFile("workday.txt", temp("workday.txt"))
-    # print(find_target_Line("picture", "workday.txt", "rt"))
-    # insert_message_to_file('workday.txt', search="According to",message=['Who are you?', "I'm your father"])
-    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"])
-    # insert_message_to_file('workday.txt', lineNum=16, message=['Who are you?', "I'm your father"],search="According to")
-    # test_insert_message_to_file()
-    # insert_message_to_file('main.mnf', search='"MuVersion": "0665",', message=['"MuVersion": "C665",'],
-    #                        test=False)
-    # insert_message_to_file('main.mnf', search=' "SupportedTrains": [',
-    #                        message=['', '"DevelopmentFlags": {', '  "SkipCheckManifestChecksum": true,',
-    #                                 '  "SkipCheckInstallerChecksum": true,', '  "SkipCheckVariant": true', ' },', ''],
-    #                        test=False)
-
     # insert_message_to_file_v2('main.mnf', search='"MuVersion": "0665",', message='"MuVersion": "C665"',
-    #                        test=False)
+    #                           close_test_mode=False, overwrite=True)
+    """
+    2.在SupportedTrains字符上方添加以下字符：
 
-    # insert_message_to_file_v2('main.mnf', search=' "SupportedTrains": [',
-    #                        message='"DevelopmentFlags": {\n "SkipCheckManifestChecksum": true,'
-    #                                '\n "SkipCheckInstallerChecksum": true,\n "SkipCheckVariant": true\n},',
-    #                        test=False)
-    insert_message_to_file_v2('main.mnf', search='"MuVersion": "0665",', message='"MuVersion": "C665"',
-                           test=False)
+     "DevelopmentFlags": {
+      "SkipCheckManifestChecksum": true,
+      "SkipCheckInstallerChecksum": true,
+      "SkipCheckVariant": true
+     },
+    """
+    dev_flags_info = '"DevelopmentFlags": {\n "SkipCheckManifestChecksum": true,\n "SkipCheckInstallerChecksum": ' \
+                     'true,\n "SkipCheckVariant": true\n}, '
+    insert_message_to_file_v2('main.mnf', search='"SupportedTrains": [', message=dev_flags_info,
+                              close_test_mode=True)
 
 
 if __name__ == '__main__':
