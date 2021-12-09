@@ -141,7 +141,8 @@ def insert_message_to_file(file_path: str, message: list = [], lineNum: int = 0,
 
 
 def insert_message_to_file_v2(file_path: str, message: str = '', lineNum: int = 0, search: str = "",
-                              close_test_mode: bool = True, overwrite: str = False, insertPosition: str = "before") -> bool:
+                              close_test_mode: bool = True, overwrite: str = False,
+                              insertPosition: str = "before") -> bool:
     if search == '' and lineNum == 0:
         print('At least one of search and lineNum should be given')
         return False
@@ -164,8 +165,10 @@ def insert_message_to_file_v2(file_path: str, message: str = '', lineNum: int = 
             # elif lineNum != 0:
             else:
                 if fileinput.lineno() == lineNum:
-                    for i in message:
-                        print(i)
+                    if overwrite:
+                        line = message  # <- replace the search with message (option2)
+                    else:
+                        print(message)  # <- just insert the message (option1)
             if insertPosition == "before":
                 print(line.strip())  # put code over here, let insert info before search
         fileinput.close()
@@ -191,8 +194,12 @@ def main():
     """
     dev_flags_info = '"DevelopmentFlags": {\n "SkipCheckManifestChecksum": true,\n "SkipCheckInstallerChecksum": ' \
                      'true,\n "SkipCheckVariant": true\n}, '
-    insert_message_to_file_v2('main.mnf', search='"SupportedTrains": [', message=dev_flags_info,
-                              close_test_mode=True)
+    # use search to insert info
+    # insert_message_to_file_v2('main.mnf', search='"SupportedTrains": [', message=dev_flags_info,
+    #                           close_test_mode=False,lineNum=1)
+    # use line number to insert info
+    insert_message_to_file_v2('main.mnf', message=dev_flags_info,
+                              close_test_mode=False, lineNum=1, overwrite=True)
 
 
 if __name__ == '__main__':
