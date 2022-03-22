@@ -24,7 +24,7 @@ class AttrDisplay:
     def gatherAttrs(self):
         attrs = []
         for key in sorted(self.__dict__):
-            attrs.append('%s=%s' % (key, getattr(self, key)))
+            attrs.append('%s=%+3s' % (key, getattr(self, key)))
         return ', '.join(attrs)
 
     def __repr__(self):
@@ -32,7 +32,7 @@ class AttrDisplay:
 
 
 class HU(AttrDisplay):
-    def __init__(self,l_num, s_num, f_id, hw_v, sw_v, p_187, p_191):
+    def __init__(self, l_num, s_num, f_id, hw_v, sw_v, p_187, p_191):
         # def __init__(self,s_num, f_id, hw_v, sw_v, p_187, p_191):
         """
         # :param l_num: local num
@@ -75,6 +75,7 @@ keyDict = {'61836': "s_num", '61820': "f_id", '61859': "hw_v", '61833': "sw_v", 
            '61841': "p_191"}
 
 GP_dict = {}
+
 
 def get_info_from_rawData(str, l_num=None):
     if l_num == '':
@@ -123,9 +124,9 @@ def printLines(file_name: str, method: str):
             # machine_id = "hu" + "_" + l_num
             # GP_dict[machine_id] = HU(keyDict['61836'], keyDict['61820'], keyDict['61859'],
             #                          keyDict['61833'], keyDict['61831'], keyDict['61841'], l_num=l_num)
-            temp_store_list.append(l_num)
             l_num = HU(l_num, keyDict['61836'], keyDict['61820'], keyDict['61859'],
-                                     keyDict['61833'], keyDict['61831'], keyDict['61841'])
+                       keyDict['61833'], keyDict['61831'], keyDict['61841'])
+            temp_store_list.append(l_num)
             l_num = ''
             # print(GP_dict[machine_id])
             # temp_store_list.append(line.strip())
@@ -133,12 +134,18 @@ def printLines(file_name: str, method: str):
 
 
 if __name__ == '__main__':
-    list = printLines("raw_data_1.txt", "r")
+    list = printLines("raw_data_1_to_100.txt", "r")
     print(list)
+    # print(list[1].l_num)
+    # print(type(list[1].l_num))
 
-    # import shelve
-    # db = shelve.open('gp_db')
-    # for obj in list:
-    #     db[obj.s_num] = obj
-    # db.close()
+    # VWX9GA0241359 = HU('9', 'VWX9GA0241359', 'X9G-10216.03.2290010204', 'H14', '0421', '3GB035866A', '3GB035866A')
+    # print(VWX9GA0241359)
+    # print(type(VWX9GA0241359))
+    import shelve
+    with shelve.open('gpdb') as db:
+        for obj in list:
+            db[obj.l_num] = obj
+
+
 
