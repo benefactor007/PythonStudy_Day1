@@ -1,0 +1,93 @@
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20:121:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0554189       
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20:121:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0554189
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-122-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10217.11.2190010003
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-122-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10217.11.2190010003
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-123-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-123-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-124-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-124-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-125-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-125-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-126-HW verison before
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-127-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H12
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-127-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H12
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-128-e5,
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-129-store: ns: 80000008 key: 0 slot: 0 status: 0 data: e5
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-130-48,31,34,
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-131-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H14
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-131-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H14
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-132-HW verison After
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-133-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H14
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-133-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H14
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-134-[root@mib-infotainment-998269:/media/mp000]# [mMV[J[Jscp ./H
+[root@mib-infotainment-998269:/media/mp000]# [mscp ./H14withRecord.sh [J [J./h13[J[J[JH13withr[JRecord.sh
+--
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20:333:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0554189       
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20:333:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0554189
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-334-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10217.11.2190010003
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-334-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10217.11.2190010003
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-335-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-335-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-336-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-336-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-337-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-337-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-338-HW verison before
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-339-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H14
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-339-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H14
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-340-e5,
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-341-store: ns: 80000008 key: 0 slot: 0 status: 0 data: e5
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-342-48,31,33,
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-343-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-343-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-344-HW verison After
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-345-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-345-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210001/periscope.log.20-346-[root@mib-infotainment-998269:/media/mp000]# [mVI [J[J[JviH13[J[J[J h[JH13
+[root@mib-infotainment-998269:/media/mp000]# [mvi H13withRecord.sh [J
+--
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20:29:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0554187       
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20:29:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0554187
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-30-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10217.11.2190010001
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-30-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10217.11.2190010001
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-31-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-31-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-32-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-32-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-33-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-33-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-34-HW verison before
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-35-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H12
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-35-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H12
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-36-e5,
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-37-store: ns: 80000008 key: 0 slot: 0 status: 0 data: e5
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-38-48,31,33,
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-39-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-39-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-40-HW verison After
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-41-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-41-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210002/periscope.log.20-42-[root@mib-infotainment-784588:/media/mp000]# [msync
+--
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20:21:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0576452       
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20:21:load: ns: 3000000 key: 61836 slot: 0 status: 0 data: VWX9GY0576452
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-22-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10226.11.2190020002
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-22-load: ns: 3000000 key: 61820 slot: 0 status: 0 data: X9G-10226.11.2190020002
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-23-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-23-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-24-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A 
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-24-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 3GB035866A
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-25-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-25-load: ns: 3000000 key: 61833 slot: 0 status: 0 data: 0419
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-26-HW verison before
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-27-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H12
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-27-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H12
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-28-e5,
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-29-store: ns: 80000008 key: 0 slot: 0 status: 0 data: e5
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-30-48,31,33,
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-31-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-31-store: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-32-HW verison After
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-33-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-33-load: ns: 3000000 key: 61859 slot: 0 status: 0 data: H13
+/home/jpcc/Desktop/PeriscopeRecord/122920210003/periscope.log.20-34-[root@mib-infotainment-597703:/media/mp000]# [msync
