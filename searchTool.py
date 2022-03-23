@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.5
+# coding=utf-8
 import binascii
 import re
 
@@ -80,7 +82,7 @@ GP_dict = {}
 def get_info_from_rawData(str, l_num=None):
     if l_num == '':
         l_num = str[:str.index("/")]
-        print("ID:", l_num)
+        # print("ID:", l_num)
         keyDict['id'] = l_num
     else:
         assert str[:str.index("/")] == l_num
@@ -88,14 +90,14 @@ def get_info_from_rawData(str, l_num=None):
     if key is not None:
         key = key.group()
         if key in keyDict.keys():
-            print(keyDict[key])
+            # print(keyDict[key])
             keyDict[key] = hexStr_to_str(str[str.rindex(':') + 2:].replace(" ", '')).strip()
-            print(keyDict[key])
+            # print(keyDict[key])
             # print(keyDict)
-            print("current l_num is", l_num)
+            # print("current l_num is", l_num)
         return l_num
     else:
-        print("Key:", key, "\nCan not search key info in this line!!!")
+        # print("Key:", key, "\nCan not search key info in this line!!!")
         return l_num
 
 
@@ -110,8 +112,8 @@ def printLines(file_name: str, method: str):
         if line.startswith("--") is not True:
             l_num = get_info_from_rawData(line.strip(), l_num)
         else:
-            print("Done! Finished")
-            print(keyDict)
+            # print("Done! Finished")
+            # print(keyDict)
             """
                     # :param l_num: local num
                     :param s_num: serial num
@@ -134,18 +136,45 @@ def printLines(file_name: str, method: str):
 
 
 if __name__ == '__main__':
-    list = printLines("raw_data_1_to_100.txt", "r")
-    print(list)
-    # print(list[1].l_num)
-    # print(type(list[1].l_num))
+    import timeit
 
-    # VWX9GA0241359 = HU('9', 'VWX9GA0241359', 'X9G-10216.03.2290010204', 'H14', '0421', '3GB035866A', '3GB035866A')
-    # print(VWX9GA0241359)
-    # print(type(VWX9GA0241359))
-    import shelve
-    with shelve.open('gpdb') as db:
-        for obj in list:
-            db[obj.l_num] = obj
+    # list += printLines("raw_data_101_to_200.txt", "r")
+    # print(
+    #     timeit.repeat('printLines("raw_data_1_to_100.txt", "r")', setup='from __main__ import printLines', number=10000,
+    #                   repeat=5))
+    # print(
+    #     timeit.timeit('printLines("raw_data_1_to_100.txt", "r")', setup='from __main__ import printLines', number=1))
+
+    # list = printLines("raw_data_1_to_100.txt", "r")
+    # list += printLines("raw_data_101_to_200_v2.txt", "r")
+    """
+    Linux command: grep -nsr "load: ns: 3000000 key: 61836 slot: 0 status: 0 data:" -A 6 > raw_data_201_to_250.txt
+    指令>和>>区别 
+    指令 > : 如果文件存在，将原来文件的内容覆盖；原文件不存在则创建文件，再添加信息。 
+    指令 >>:不会覆盖原文件内容，将内容追加到文件的尾部。
+    """
+    # list = printLines("raw_data_201_to_250.txt", "r")
+    # list = printLines("raw_data_301_to_350.txt", "r")
+    # print(list)
 
 
+    # H14_301_to_350
+    def store_to_db(str):
+        import shelve
+        with shelve.open('H14' + str[str.index('data') + 4: str.rindex(".")]) as db:
+            for obj in printLines(str, "r"):
+                db[obj.l_num] = obj
+        print("Done!")
 
+    # -----------------Template-----------------------
+    # store_to_db("raw_data_1_to_100.txt")
+    # -----------------Template-----------------------
+    store_to_db("raw_data_1_to_100.txt")
+    store_to_db("raw_data_101_to_200.txt")
+    # with shelve.open('gpdb2') as db:
+    #     for obj in list2:
+    #         db[obj.l_num] = obj
+
+    # with open("tmp.txt") as file:
+    #     for line in file:
+    #         print(line[:line.strip().index("/")])

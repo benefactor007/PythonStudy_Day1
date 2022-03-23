@@ -797,3 +797,4 @@
 41/periscope.log.20-149-load: ns: 3000000 key: 61831 slot: 0 status: 0 data: 33 47 42 30 33 35 38 36 36 41 20 
 41/periscope.log.20-150-load: ns: 3000000 key: 61841 slot: 0 status: 0 data: 33 47 42 30 33 35 38 36 36 41 20 
 41/periscope.log.20-151-[root@mib-infotainment-004778:/media/mp000]# [msync
+--
