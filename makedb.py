@@ -1,4 +1,6 @@
+#!/usr/bin/env python3.5
 # coding=utf-8
+
 import shelve
 
 from searchTool import HU
@@ -76,18 +78,24 @@ def check_duplicate(filename):
         # -----------------Test--------------------
         tmpDic = {}.fromkeys(tempList)
         if len(tmpDic) == len(tempList):
-            return greenFont("It's fine! Everything is unique.")
+            print(greenFont("It's fine! Everything is unique."))
+            return len(db)
         else:
-            return redFont("There is a duplicate item, Please check it!")
+            print(redFont("There is a duplicate item, Please check it!"))
+            return False
 
 if __name__ == '__main__':
 
     import shelve
-    db_list = ['H14_1_to_100','H14_101_to_200',"H14_351_to_400","H14_301_to_350","H14_251_to_300","H14_201_to_250"]
-    for i in db_list:
+    db_list = ['H14_1_to_100','H14_101_to_200',"H14_201_to_250","H14_251_to_300","H14_351_to_400","H14_301_to_350",]
+    db_list_0324 = ['H14_401_to_450','H14_451_to_500','H14_601_to_650']
+    db_list_0324_chaoyuan = ['H14_501_to_600','H14_651_to_750']
+    db_list_0325 = ['H14_751_to_800']
+    sum = 0
+    for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
         # read_shelve_db(i)
-        print(check_duplicate(i))
-
+        sum += check_duplicate(i)
+    print("The total qty of HU is", str(sum))
     #
     # check_duplicate("H14_351_to_400")
     #
