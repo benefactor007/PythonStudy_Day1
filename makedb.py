@@ -66,7 +66,9 @@ def check_duplicate(filename):
         for key in db:
             # print(key, '\t=>\t', db[key])
             assert db[key].hw_v == "H14"
-            print('%-3s=>%s' % (key, db[key]))
+            # print('%-3s=>%s' % (key, db[key]))
+            # print(db[key].l_num,db[key].f_id)
+            print(db[key].f_id)
             tempList.append(db[key].f_id)
             # print(db[key].f_id)
         # print(tempList)
@@ -76,13 +78,20 @@ def check_duplicate(filename):
         # tempList[2] = 'X9G-10222.03.2290011635'
         # print(tempList[2])
         # -----------------Test--------------------
-        tmpDic = {}.fromkeys(tempList)
+        # tmpDic = {}.fromkeys(tempList)
+        from collections import Counter
+        tmpDic = dict(Counter(tempList))
+        print([key for key, value in tmpDic.items() if value > 1])      # Show duplicate item.
+        print({key: value for key, value in tmpDic.items() if value > 1})    # Show duplicate item and the times.
         if len(tmpDic) == len(tempList):
             print(greenFont("It's fine! Everything is unique."))
             return len(db)
+            # return len(tempList)
         else:
             print(redFont("There is a duplicate item, Please check it!"))
+            # print(tmpDic)
             return False
+
 
 if __name__ == '__main__':
 
@@ -93,10 +102,15 @@ if __name__ == '__main__':
     db_list_0325 = ['H14_751_to_800']
     db_list_0328 = ['H14_801_to_900_v2']
     db_list_0328_chaoyuan = ['H14_901_to_1000']
+    db_list_0329 = ['H14_1001_to_1100']
+    db_list_0329_chaoyuan = ['H14_1101_to_1200']
+    db_list_0330 = ['H14_1201_to_1300']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
         # read_shelve_db(i)
-    for i in (db_list_0328 + db_list_0328_chaoyuan):
+    # for i in (db_list_0328 + db_list_0328_chaoyuan):
+    for i in db_list_0330:
+    # for i in db_list_0329_chaoyuan:
         sum += check_duplicate(i)
     print("The total qty of HU is", str(sum))
     #
