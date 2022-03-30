@@ -186,8 +186,8 @@ if __name__ == '__main__':
     # raw_file_name = 'raw_data_601_to_650.txt'
     # raw_file_name = 'raw_data_651_to_750.txt'
     # raw_file_name = "raw_data_1001_to_1100.txt"
-    # raw_file_name = "raw_data_1101_to_1200.txt"
-    raw_file_name = "raw_data_1201_to_1300.txt"
+    raw_file_name = "raw_data_1101_to_1200_v2.txt"
+    # raw_file_name = "raw_data_1201_to_1300.txt"
     # with open(raw_file_name) as raw_file:
     #     # for line in raw_file:
     #     #     print(line.strip())
