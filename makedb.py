@@ -6,6 +6,7 @@ import shelve
 from searchTool import HU
 import glob
 
+
 def merge(left, right, lt):
     """Assume left and right are sorted lists,
     It defines an ordering on the elements of the lists.
@@ -15,7 +16,7 @@ def merge(left, right, lt):
     result = []
     i, j = 0, 0
     while i < len(left) and j < len(right):
-        if lt(left[i], right[j]):               # Left[i] < right[j]
+        if lt(left[i], right[j]):  # Left[i] < right[j]
             result.append(left[i])
             i += 1
         else:
@@ -37,10 +38,10 @@ def sort(L, lt=lambda x, y: x < y):
     else:
         # middle = int(len(L)/2)
         middle = len(L) // 2
-        left = sort(L[:middle],lt)
-        right = sort(L[middle:],lt)
+        left = sort(L[:middle], lt)
+        right = sort(L[middle:], lt)
         # print('About to merge', left, 'and', right)
-        return merge(left,right,lt)
+        return merge(left, right, lt)
 
 
 def read_shelve_db(filename):
@@ -51,8 +52,10 @@ def read_shelve_db(filename):
             # print(key, '\t=>\t', db[key])
             print('%-3s=>%s' % (key, db[key]))
 
+
 def greenFont(str):
     return "\033[32m" + str + "\033[0m"
+
 
 def redFont(str):
     return "\033[31m" + str + "\033[0m"
@@ -81,8 +84,8 @@ def check_duplicate(filename):
         # tmpDic = {}.fromkeys(tempList)
         from collections import Counter
         tmpDic = dict(Counter(tempList))
-        print([key for key, value in tmpDic.items() if value > 1])      # Show duplicate item.
-        print({key: value for key, value in tmpDic.items() if value > 1})    # Show duplicate item and the times.
+        print([key for key, value in tmpDic.items() if value > 1])  # Show duplicate item.
+        print({key: value for key, value in tmpDic.items() if value > 1})  # Show duplicate item and the times.
         if len(tmpDic) == len(tempList):
             print(greenFont("It's fine! Everything is unique."))
             return len(db)
@@ -96,9 +99,11 @@ def check_duplicate(filename):
 if __name__ == '__main__':
 
     import shelve
-    db_list = ['H14_1_to_100','H14_101_to_200',"H14_201_to_250","H14_251_to_300","H14_351_to_400","H14_301_to_350",]
-    db_list_0324 = ['H14_401_to_450','H14_451_to_500','H14_601_to_650']
-    db_list_0324_chaoyuan = ['H14_501_to_600','H14_651_to_750']
+
+    db_list = ['H14_1_to_100', 'H14_101_to_200', "H14_201_to_250", "H14_251_to_300", "H14_351_to_400",
+               "H14_301_to_350", ]
+    db_list_0324 = ['H14_401_to_450', 'H14_451_to_500', 'H14_601_to_650']
+    db_list_0324_chaoyuan = ['H14_501_to_600', 'H14_651_to_750']
     db_list_0325 = ['H14_751_to_800']
     db_list_0328 = ['H14_801_to_900_v2']
     db_list_0328_chaoyuan = ['H14_901_to_1000']
@@ -107,10 +112,21 @@ if __name__ == '__main__':
     db_list_0330 = ['H14_1201_to_1300']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
-        # read_shelve_db(i)
+    # read_shelve_db(i)
     # for i in (db_list_0328 + db_list_0328_chaoyuan):
     # for i in db_list_0330:
-    for i in db_list_0329_chaoyuan:
+    # for i in (
+    #         db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325 + db_list_0328 + db_list_0328_chaoyuan + \
+    #         db_list_0329 + db_list_0329_chaoyuan + db_list_0330):
+    for i in ['H14_1101_to_1200']:
+    """
+    if match the duplicate item then return 0 with the total qty of HU.
+    i.e. 
+        ['X9G-10227.03.2290010303', 'X9G-10227.03.2290010278']
+        {'X9G-10227.03.2290010303': 2, 'X9G-10227.03.2290010278': 2}
+        There is a duplicate item, Please check it!
+        The total qty of HU is 0
+    """
         sum += check_duplicate(i)
     print("The total qty of HU is", str(sum))
     #
@@ -120,7 +136,6 @@ if __name__ == '__main__':
     # read_shelve_db("H14_301_to_350")
     # read_shelve_db("H14_251_to_300")
     # read_shelve_db("H14_201_to_250")
-
 
     # print(glob.glob('gpdb*'))
     # print(open('gpdb.dir').read())
