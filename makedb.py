@@ -86,6 +86,7 @@ def check_duplicate(filename):
         tmpDic = dict(Counter(tempList))
         print([key for key, value in tmpDic.items() if value > 1])  # Show duplicate item.
         print({key: value for key, value in tmpDic.items() if value > 1})  # Show duplicate item and the times.
+        print([key for key, value in db.items() if db[key].f_id == 'X9G-10229.03.2290010170']) # Need to improve
         if len(tmpDic) == len(tempList):
             print(greenFont("It's fine! Everything is unique."))
             return len(db)
@@ -110,6 +111,7 @@ if __name__ == '__main__':
     db_list_0329 = ['H14_1001_to_1100']
     db_list_0329_chaoyuan = ['H14_1101_to_1200_v2']
     db_list_0330 = ['H14_1201_to_1300']
+    db_list_0331_chaoyuan = ['H14_1301_to_1400']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
     # read_shelve_db(i)
@@ -118,15 +120,7 @@ if __name__ == '__main__':
     # for i in (
     #         db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325 + db_list_0328 + db_list_0328_chaoyuan + \
     #         db_list_0329 + db_list_0329_chaoyuan + db_list_0330):
-    for i in ['H14_1101_to_1200']:
-    """
-    if match the duplicate item then return 0 with the total qty of HU.
-    i.e. 
-        ['X9G-10227.03.2290010303', 'X9G-10227.03.2290010278']
-        {'X9G-10227.03.2290010303': 2, 'X9G-10227.03.2290010278': 2}
-        There is a duplicate item, Please check it!
-        The total qty of HU is 0
-    """
+    for i in db_list_0331_chaoyuan:
         sum += check_duplicate(i)
     print("The total qty of HU is", str(sum))
     #
@@ -139,3 +133,12 @@ if __name__ == '__main__':
 
     # print(glob.glob('gpdb*'))
     # print(open('gpdb.dir').read())
+
+    """
+        if match the duplicate item then return 0 with the total qty of HU.
+        i.e. 
+            ['X9G-10227.03.2290010303', 'X9G-10227.03.2290010278']
+            {'X9G-10227.03.2290010303': 2, 'X9G-10227.03.2290010278': 2}
+            There is a duplicate item, Please check it!
+            The total qty of HU is 0
+        """

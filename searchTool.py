@@ -186,7 +186,7 @@ if __name__ == '__main__':
     # raw_file_name = 'raw_data_601_to_650.txt'
     # raw_file_name = 'raw_data_651_to_750.txt'
     # raw_file_name = "raw_data_1001_to_1100.txt"
-    raw_file_name = "raw_data_1101_to_1200.txt"
+    raw_file_name = "raw_data_1301_to_1400.txt"
     # raw_file_name = "raw_data_1201_to_1300.txt"
     # with open(raw_file_name) as raw_file:
     #     # for line in raw_file:
@@ -194,6 +194,6 @@ if __name__ == '__main__':
     #     line = raw_file.readlines()
     #     if not line == '':
     #         print("yes",line[-1])
-    message = "--"
-    os.system("echo " + message + " >> " + raw_file_name)
+    # message = "--"
+    # os.system("echo " + message + " >> " + raw_file_name)
     store_to_db(raw_file_name)
