@@ -84,9 +84,10 @@ def check_duplicate(filename):
         # tmpDic = {}.fromkeys(tempList)
         from collections import Counter
         tmpDic = dict(Counter(tempList))
-        print([key for key, value in tmpDic.items() if value > 1])  # Show duplicate item.
-        print({key: value for key, value in tmpDic.items() if value > 1})  # Show duplicate item and the times.
-        print([key for key, value in db.items() if db[key].f_id == 'X9G-10229.03.2290010170']) # Need to improve
+        # ([key for key, value in tmpDic.items() if value > 1])  # Show duplicate item.
+        for i in ({key: value for (key, value) in tmpDic.items() if value > 1}):  # Show duplicate item and the times.
+            print({key: value.f_id for (key, value) in db.items() if db[key].f_id == i}) # Need to improve
+            """Notice: It returns a list by using [], or returns a dict by using {}"""
         if len(tmpDic) == len(tempList):
             print(greenFont("It's fine! Everything is unique."))
             return len(db)
@@ -111,7 +112,8 @@ if __name__ == '__main__':
     db_list_0329 = ['H14_1001_to_1100']
     db_list_0329_chaoyuan = ['H14_1101_to_1200_v2']
     db_list_0330 = ['H14_1201_to_1300']
-    db_list_0331_chaoyuan = ['H14_1301_to_1400']
+    db_list_0331_chaoyuan = ['H14_1301_to_1400_v2']
+    db_list_0401 = ['H14_1401_to_1500']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
     # read_shelve_db(i)
