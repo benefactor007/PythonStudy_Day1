@@ -114,6 +114,7 @@ if __name__ == '__main__':
     db_list_0330 = ['H14_1201_to_1300']
     db_list_0331_chaoyuan = ['H14_1301_to_1400_v2']
     db_list_0401 = ['H14_1401_to_1500']
+    db_list_0402 = ['H14_1501_to_1600','H14_1601_to_1700','H14_1701_to_1800']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
     # read_shelve_db(i)
@@ -122,9 +123,13 @@ if __name__ == '__main__':
     # for i in (
     #         db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325 + db_list_0328 + db_list_0328_chaoyuan + \
     #         db_list_0329 + db_list_0329_chaoyuan + db_list_0330):
-    for i in db_list_0331_chaoyuan:
+
+    for i in db_list_0402:
         sum += check_duplicate(i)
     print("The total qty of HU is", str(sum))
+
+
+    #
     #
     # check_duplicate("H14_351_to_400")
     #
