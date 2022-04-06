@@ -88,6 +88,13 @@ def check_duplicate(filename):
         for i in ({key: value for (key, value) in tmpDic.items() if value > 1}):  # Show duplicate item and the times.
             print({key: value.f_id for (key, value) in db.items() if db[key].f_id == i}) # Need to improve
             """Notice: It returns a list by using [], or returns a dict by using {}"""
+        # control_list = []
+        # for i in range(100):
+        #     control_list.append(str(1801+i))
+        # print(control_list)
+        # l1 = set(control_list)
+        # l2 = set(sort(list(db.keys())))
+        # print('l1^l2:', l1^l2)
         if len(tmpDic) == len(tempList):
             print(greenFont("It's fine! Everything is unique."))
             return len(db)
@@ -96,6 +103,7 @@ def check_duplicate(filename):
             print(redFont("There is a duplicate item, Please check it!"))
             # print(tmpDic)
             return False
+
 
 
 if __name__ == '__main__':
@@ -115,6 +123,7 @@ if __name__ == '__main__':
     db_list_0331_chaoyuan = ['H14_1301_to_1400_v2']
     db_list_0401 = ['H14_1401_to_1500']
     db_list_0402 = ['H14_1501_to_1600','H14_1601_to_1700','H14_1701_to_1800']
+    db_list_0402_chao = ['H14_1801_to_1900', 'H14_1901_to_2000']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
     # read_shelve_db(i)
@@ -124,7 +133,7 @@ if __name__ == '__main__':
     #         db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325 + db_list_0328 + db_list_0328_chaoyuan + \
     #         db_list_0329 + db_list_0329_chaoyuan + db_list_0330):
 
-    for i in db_list_0402:
+    for i in db_list_0402_chao:
         sum += check_duplicate(i)
     print("The total qty of HU is", str(sum))
 
