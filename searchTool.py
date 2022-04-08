@@ -3,6 +3,7 @@
 import binascii
 import re
 import os
+import shelve
 
 
 def hexStr_to_str(hex_info):
@@ -186,7 +187,7 @@ if __name__ == '__main__':
     # raw_file_name = 'raw_data_601_to_650.txt'
     # raw_file_name = 'raw_data_651_to_750.txt'
     # raw_file_name = "raw_data_1001_to_1100.txt"
-    raw_file_name = "raw_data_1801_to_1900.txt"
+    # raw_file_name = "raw_data_1801_to_1900.txt"
 
     # raw_file_name = "raw_data_1201_to_1300.txt"
     # with open(raw_file_name) as raw_file:
@@ -197,4 +198,27 @@ if __name__ == '__main__':
     #         print("yes",line[-1])
     # message = "--"
     # os.system("echo " + message + " >> " + raw_file_name)
-    store_to_db(raw_file_name)
+    # store_to_db(raw_file_name)
+
+    # ----------------------------------------
+    # How to use my code:
+    # 1. raw_file_name = "raw_data_1801_to_1900.txt"
+    # 2. store_to_db(raw_file_name)
+    # ----------------------------------------
+
+    """
+    One way to store HU's record from 1 to 2000 into one file.
+    """
+    raw_data_list = []
+    with open('raw_data_list_1_to_2000.txt', 'r') as raw_data_list_file:
+        # print(raw_data_list_file.read())
+        data = raw_data_list_file.readlines()
+        for i in data:
+            # print(i.strip())
+            raw_data_list.append(i.strip())
+    print(raw_data_list)
+    with shelve.open('H14_1_to_2000') as db_1_to_2000:
+        for i in raw_data_list:
+            for obj in printLines(i, "r"):
+                db_1_to_2000[obj.l_num] = obj
+    print("Done!")

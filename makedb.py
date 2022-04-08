@@ -64,7 +64,7 @@ def redFont(str):
 def check_duplicate(filename):
     with shelve.open(filename) as db:
         print(len(db))
-        print(sort(list(db.keys())))
+        # print(sort(list(db.keys())))
         tempList = []
         for key in db:
             # print(key, '\t=>\t', db[key])
@@ -124,6 +124,7 @@ if __name__ == '__main__':
     db_list_0401 = ['H14_1401_to_1500']
     db_list_0402 = ['H14_1501_to_1600','H14_1601_to_1700','H14_1701_to_1800']
     db_list_0402_chao = ['H14_1801_to_1900', 'H14_1901_to_2000']
+    db_final_list_0407_summary = ['H14_1_to_2000']
     sum = 0
     # for i in (db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325):
     # read_shelve_db(i)
@@ -133,7 +134,7 @@ if __name__ == '__main__':
     #         db_list + db_list_0324 + db_list_0324_chaoyuan + db_list_0325 + db_list_0328 + db_list_0328_chaoyuan + \
     #         db_list_0329 + db_list_0329_chaoyuan + db_list_0330):
 
-    for i in db_list_0402_chao:
+    for i in db_final_list_0407_summary:
         sum += check_duplicate(i)
     print("The total qty of HU is", str(sum))
 
